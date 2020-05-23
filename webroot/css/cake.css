@@ -184,6 +184,19 @@ th {
     content: " \2191";
 }
 
+/* Pagination Mine */
+.paging {
+    margin-top:30px;
+}
+.paging ul { 
+    margin:0px;
+    padding:0px;
+}
+.paging ul li {
+    display:inline-block;
+    margin-right:5px;
+}
+
 /* Error */
 .error-container {
     align-items: center;
