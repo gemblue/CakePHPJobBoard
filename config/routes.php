@@ -55,20 +55,39 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered through `Application::routes()` with `registerMiddleware()`
      */
-    $builder->applyMiddleware('csrf');
-
+    // $builder->applyMiddleware('csrf');
+    
     /*
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
+    
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    
+    /**
+     * User Module
+     */
+    $builder->get('/user', ['controller' => 'User', 'action' => 'index']);
+    $builder->get('/user/add', ['controller' => 'User', 'action' => 'add']);
+    $builder->get('/user/edit/{id}', ['controller' => 'User', 'action' => 'edit'])
+            ->setPatterns(['id' => '\d+'])
+            ->setPass(['id']);
+    
+    $builder->get('/user/search', ['controller' => 'User', 'action' => 'search']);
+    $builder->post('/user/insert', ['controller' => 'User', 'action' => 'insert']);
+    $builder->post('/user/update/{id}', ['controller' => 'User', 'action' => 'update'])
+            ->setPatterns(['id' => '\d+'])
+            ->setPass(['id']);
 
+    $builder->get('/user/delete/{id}', ['controller' => 'User', 'action' => 'delete'])
+            ->setPatterns(['id' => '\d+'])
+            ->setPass(['id']);
+    
     /*
      * Connect catchall routes for all controllers.
      *
@@ -82,7 +101,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $builder->fallbacks();
+    // $builder->fallbacks();
 });
 
 /*
