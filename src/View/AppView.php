@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace App\View;
 
 use Cake\View\View;
+use Cake\Utility\Text;
 
 /**
  * Application View
@@ -26,6 +27,8 @@ use Cake\View\View;
  */
 class AppView extends View
 {
+    public $Text;
+
     /**
      * Initialization hook method.
      *
@@ -37,5 +40,6 @@ class AppView extends View
      */
     public function initialize(): void
     {
+        $this->Text = new Text;
     }
 }
