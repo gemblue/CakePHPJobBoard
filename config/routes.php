@@ -57,21 +57,24 @@ $routes->scope('/', function (RouteBuilder $builder) {
      */
     // $builder->applyMiddleware('csrf');
     
-    /*
-     * Here, we are connecting '/' (base path) to a controller called 'Pages',
-     * its action called 'display', and we pass a param to select the view file
-     * to use (in this case, templates/Pages/home.php)...
+    /**
+     * Homepage.
+	 * 
+	 * Show jobs.
      */
-    $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $builder->connect('/', ['controller' => 'Home', 'action' => 'index']);
     
     /*
-     * ...and connect the rest of 'Pages' controller's URLs.
+     * Pages controller
+	 * 
+	 * For static need.
      */
     $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     
     /**
      * User Module
      */
+	/*
     $builder->get('/user', ['controller' => 'User', 'action' => 'index']);
     $builder->get('/user/add', ['controller' => 'User', 'action' => 'add']);
     $builder->get('/user/edit/{id}', ['controller' => 'User', 'action' => 'edit'])
@@ -86,7 +89,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
 
     $builder->get('/user/delete/{id}', ['controller' => 'User', 'action' => 'delete'])
             ->setPatterns(['id' => '\d+'])
-            ->setPass(['id']);
+            ->setPass(['id']); */
     
     /*
      * Connect catchall routes for all controllers.
