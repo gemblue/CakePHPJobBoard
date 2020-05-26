@@ -8,11 +8,6 @@ use Cake\ORM\Entity;
 /**
  * User Entity
  *
- * @property int $id
- * @property string $name
- * @property string $email
- * @property string $username
- * @property string $biography
  * @property \Cake\I18n\FrozenTime $created_at
  * @property \Cake\I18n\FrozenTime $updated_at
  */
@@ -31,6 +26,7 @@ class User extends Entity
         'name' => true,
         'email' => true,
         'username' => true,
+        'password' => true,
         'biography' => true,
         'created_at' => true,
         'updated_at' => true,
