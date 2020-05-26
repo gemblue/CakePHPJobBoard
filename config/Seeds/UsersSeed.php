@@ -39,7 +39,7 @@ class UsersSeed extends AbstractSeed
                 'id'    => '2',
                 'name' => 'Denis',
                 'email' => 'denis@gmail.com',
-                'username' => 'deni',
+                'username' => 'denis',
                 'password' => $password,
                 'biography' => 'Lorem ipsum',
                 'created_at' => $date,
