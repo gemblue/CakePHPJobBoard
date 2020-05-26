@@ -40,10 +40,12 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
-
+        
+        // Dependency injection.
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Authentication.Authentication');
+        
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
