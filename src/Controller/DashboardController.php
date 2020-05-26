@@ -12,6 +12,7 @@ class DashboardController extends AppController
      * Index method
      *
      * @return \Cake\Http\Response|null|void Renders view
+     * @return \Cake\Http\Response|null|void Renders view
      */
     public function index()
     {
