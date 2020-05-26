@@ -7,6 +7,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Event\EventInterface;
+use Authentication\PasswordHasher\DefaultPasswordHasher;
 
 /**
  * Users Model
@@ -66,6 +68,11 @@ class UsersTable extends Table
             ->notEmptyString('email');
 
         $validator
+            ->scalar('password')
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
+
+        $validator
             ->scalar('username')
             ->maxLength('username', 20)
             ->requirePresence('username', 'create')
@@ -102,5 +109,14 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['username']));
 
         return $rules;
+    }
+
+    public function beforeSave(EventInterface $event, $entity, $options)
+    {
+        $date = date('Y-m-d H:i:s');
+
+        $entity->password = (new DefaultPasswordHasher())->hash($entity->password);
+        $entity->created_at = $date;
+        $entity->updated_at = $date;
     }
 }
