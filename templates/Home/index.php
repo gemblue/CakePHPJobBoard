@@ -20,7 +20,8 @@
                     </div>
                 
                     <div style="margin-top:20px;">
-                        <a href="/detail/<?= $job->id ?>" class="button button-outline">Lihat</a>
+                        <a href="/detail/<?= $job->id ?>" class="button">Lihat</a>
+                        <a href="/detail/<?= $job->id ?>" class="button button-outline"><i class="las la-hand-pointer"></i> Lamar</a>
                     </div>
                 </div>
             </div>
