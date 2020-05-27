@@ -1,3 +1,4 @@
+/* Header */
 header{
     background:#2c3e50;
     padding:15px;
@@ -11,6 +12,7 @@ header h2{
     color:#FFF;
 }
 
+/* Box */
 .box {
     padding:20px;
     background:#dedede;
@@ -29,10 +31,26 @@ header h2{
     font-size: 15px;
 }
 
+/* Jobs Box. */
 .jobs {
     margin-bottom:30px;
 }
 
+/* Detail */
+.detail h3 {
+    margin:0px;
+}
+
+.detail p {
+    margin-top:30px;
+}
+
+.detail .date {
+    margin-top:30px;
+    font-size:15px;
+}
+
+/* Footer */
 footer{
     margin-top:50px;
     background:#dedede;
