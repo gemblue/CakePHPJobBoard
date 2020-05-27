@@ -1,4 +1,14 @@
-<h3>Pekerjaan Terbaru</h3>
+<div class="search">
+    <div class="row">
+        <div class="column">
+            <h3>Pekerjaan Terbaru</h3>
+        </div>
+        <div class="column">
+            <input type="text" name="keyword" placeholder="Cari pekerjaan apa ..." />
+        </div>
+    </div>
+</div>
+
 <div class="jobs">
     <div class="row">
 
