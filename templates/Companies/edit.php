@@ -18,11 +18,12 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="companies form content">
-            <?= $this->Form->create($company) ?>
+            <?= $this->Form->create($company, ['enctype'=>'multipart/form-data']) ?>
             <fieldset>
                 <legend><?= __('Edit Company') ?></legend>
                 <?php
                     echo $this->Form->control('name');
+                    echo $this->Form->control('image', ['type' => 'file']);
                     echo $this->Form->control('description');
                     echo $this->Form->control('created_at');
                     echo $this->Form->control('updated_at');
