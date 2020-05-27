@@ -6,6 +6,9 @@ JobsDB platform like, written in CakePHP v4
 
 ```
 git clone https://github.com/gemblue/CakePHPJobBoard JobBoard
+cd JobBoard
+./bin/cake migrations migrate
+./bin/cake migrations seed
 ```
 
 ## Trial
