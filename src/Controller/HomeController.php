@@ -20,6 +20,17 @@ class HomeController extends AppController
 
         $this->viewBuilder()->setLayout('public');
     }
+    
+    /**
+     * Before filter.
+     */
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        
+        // Configure the login action to not require authentication, preventing
+        $this->Authentication->addUnauthenticatedActions(['index', 'detail']);
+    }
 
     /**
      * Index method
