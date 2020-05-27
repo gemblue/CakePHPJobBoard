@@ -29,6 +29,7 @@ class Company extends Entity
      */
     protected $_accessible = [
         'name' => true,
+        'image' => true,
         'description' => true,
         'created_at' => true,
         'updated_at' => true,
