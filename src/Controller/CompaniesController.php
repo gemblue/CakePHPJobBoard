@@ -47,15 +47,33 @@ class CompaniesController extends AppController
     public function add()
     {
         $company = $this->Companies->newEmptyEntity();
+
         if ($this->request->is('post')) {
-            $company = $this->Companies->patchEntity($company, $this->request->getData());
+            
+            $data = $this->request->getData();
+            
+            // Upload.
+            try {
+                $image = $this->request->getData('image');
+                $image->moveTo(WWW_ROOT . 'uploads/' .  $image->getClientFilename());
+            } catch (Exception $e) {
+                $this->Flash->error(__($e->geMessage()));
+                $this->set(compact('company'));
+            }
+            
+            $data['image'] = 'http://' . $_SERVER['HTTP_HOST'] . '/uploads/' . $image->getClientFilename();
+            
+            $company = $this->Companies->patchEntity($company, $data);
+            
             if ($this->Companies->save($company)) {
                 $this->Flash->success(__('The company has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
+            
             $this->Flash->error(__('The company could not be saved. Please, try again.'));
         }
+
         $this->set(compact('company'));
     }
 
@@ -71,15 +89,33 @@ class CompaniesController extends AppController
         $company = $this->Companies->get($id, [
             'contain' => [],
         ]);
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $company = $this->Companies->patchEntity($company, $this->request->getData());
+
+            $data = $this->request->getData();
+            
+            // Upload.
+            try {
+                $image = $this->request->getData('image');
+                $image->moveTo(WWW_ROOT . 'uploads/' .  $image->getClientFilename());
+            } catch (Exception $e) {
+                $this->Flash->error(__($e->geMessage()));
+                $this->set(compact('company'));
+            }
+
+            $data['image'] = 'http://' . $_SERVER['HTTP_HOST'] . '/uploads/' . $image->getClientFilename();
+
+            $company = $this->Companies->patchEntity($company, $data);
+            
             if ($this->Companies->save($company)) {
                 $this->Flash->success(__('The company has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
+            
             $this->Flash->error(__('The company could not be saved. Please, try again.'));
         }
+
         $this->set(compact('company'));
     }
 
