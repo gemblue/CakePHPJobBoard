@@ -59,10 +59,12 @@ $routes->scope('/', function (RouteBuilder $builder) {
     
     /**
      * Homepage.
-	 * 
-	 * Show jobs.
+     * 
+     * Show jobs.
      */
     $builder->connect('/', ['controller' => 'Home', 'action' => 'index']);
+	$builder->get('/detail/{id}', ['controller' => 'Home', 'action' => 'detail'])
+			->setPass(['id']);
     
     /*
      * Pages controller
