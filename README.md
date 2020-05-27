@@ -25,3 +25,5 @@ cd YourProjectFolder
 ```
 
 Open app at http://localhost:8765/
+
+![](https://nimbus-screenshots.s3.amazonaws.com/s/4c983e21520c6669e4c2d6ece0ad1f56.png)
