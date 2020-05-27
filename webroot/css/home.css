@@ -1,12 +1,22 @@
+body {
+    background:#2c3e50;
+}
+
+h3{
+    color:#FFF;
+    margin:0px;
+    padding:0px;
+}
+
 /* Header */
 header{
-    background:#2c3e50;
+    background:#34495e;
     padding:15px;
     text-align: left;
     margin-bottom:30px;
 }
 header h2{
-    font-size:20px;
+    font-size:25px;
     margin:0px;
     padding:0px;
     color:#FFF;
@@ -17,10 +27,10 @@ header h2{
     padding:20px;
     background:#dedede;
     border: 1px solid;
-    box-shadow: 5px 7px #888888;
     min-height:300px;
 }
 .box h3{
+    color:#000;
     margin-bottom:0px;
     margin-bottom:10px;
 }
@@ -34,6 +44,24 @@ header h2{
 /* Jobs Box. */
 .jobs {
     margin-bottom:30px;
+}
+
+/* Search Box. */
+.search input {
+    color:#FFF;
+}
+
+::placeholder {
+    color: #dedede;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #dedede;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #dedede;
 }
 
 /* Detail */
@@ -53,9 +81,10 @@ header h2{
 /* Footer */
 footer{
     margin-top:50px;
-    background:#dedede;
     padding:10px;
     text-align: center;
+    color:#FFF;
+    font-size:15px;
 }
 
 /* Utility */
