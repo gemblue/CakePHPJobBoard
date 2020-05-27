@@ -57,3 +57,8 @@ footer{
     padding:10px;
     text-align: center;
 }
+
+/* Utility */
+.img-reponsive {
+    width:100%;
+}
