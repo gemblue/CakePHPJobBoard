@@ -35,8 +35,27 @@ class HomeController extends AppController
         ];
         
         $this->set([
-            'title' => 'Homepage',
+            'title' => 'Welcome to the JobsDB Like',
             'jobs' => $this->paginate($this->Jobs)
+        ]);
+    }
+
+    /**
+     * Detail method
+     * 
+     * Show detail job by slug ..
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function detail($id)
+    {
+        $job = $this->Jobs->get($id, [
+            'contain' => ['Companies'],
+        ]);
+
+        $this->set([
+            'title' => 'Detail Jobs',
+            'job' => $job
         ]);
     }
 }
