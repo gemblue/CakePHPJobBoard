@@ -2,19 +2,26 @@
 
 JobsDB platform like, written in CakePHP v4
 
-## Installation
+## Install
 
+- Clone repo
 ```
-git clone https://github.com/gemblue/CakePHPJobBoard JobBoard
-cd JobBoard
+git clone https://github.com/gemblue/CakePHPJobBoard YourProjectFolder
+cd YourProjectFolder
+```
+- Migrate DB Structure
+```
 ./bin/cake migrations migrate
+```
+- Record Table Sampling / Seed
+```
 ./bin/cake migrations seed
 ```
 
-## Trial
+## Run on Server
 
 ```
  ./bin/cake server
 ```
 
-Open url http://localhost:8765/
+Open app at http://localhost:8765/
