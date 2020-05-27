@@ -7,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Event\EventInterface;
 
 /**
  * Companies Model
@@ -80,7 +81,16 @@ class CompaniesTable extends Table
             ->dateTime('updated_at')
             ->requirePresence('updated_at', 'create')
             ->notEmptyDateTime('updated_at');
-
+        
         return $validator;
+    }
+
+    /**
+     * Before save.
+     */
+    public function beforeSave(EventInterface $event, $entity)
+    {
+        $entity->created_at = date('Y-m-d H:i:s');
+        $entity->updated_at = date('Y-m-d H:i:s');
     }
 }
